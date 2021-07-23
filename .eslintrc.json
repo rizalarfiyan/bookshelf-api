@@ -11,6 +11,7 @@
     "ecmaVersion": 12
   },
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "import/extensions": "off"
   }
 }

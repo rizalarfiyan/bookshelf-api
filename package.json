@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Submission Bookshelf API dicoding Indonesia",
   "main": "./src/index.js",
+  "type": "module",
   "engines": {
     "node": "14.17.0"
   },
@@ -21,7 +22,9 @@
   "author": "rizalarfiyan <rizal.arfiyan.23@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "@hapi/hapi": "^20.1.5"
+    "@hapi/hapi": "^20.1.5",
+    "dotenv": "^10.0.0",
+    "nanoid": "^3.1.23"
   },
   "devDependencies": {
     "eslint": "^7.31.0",
