@@ -1,0 +1,15 @@
+{
+  "name": "bookshelf-api",
+  "version": "1.0.0",
+  "description": "Submission Bookshelf API dicoding Indonesia",
+  "main": "./src/index.js",
+  "engines": {
+    "node": "14.17.0"
+  }, 
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["api", "bookshelf", "dicoding", "backend"],
+  "author": "rizalarfiyan <rizal.arfiyan.23@gmail.com>",
+  "license": "ISC"
+}
