@@ -108,3 +108,22 @@ export function getAllBooksHandler(request, h) {
     })
     .code(200)
 }
+
+export function getBookByIdHandler(request, h) {
+  const { id } = request.params
+  const book = books.find((item) => item.id === id)
+
+  if (typeof book === 'undefined') {
+    return h
+      .response({
+        status: 'fail',
+        message: 'Buku tidak ditemukan',
+      })
+      .code(404)
+  }
+
+  return h.response({
+    status: 'success',
+    data: { book },
+  })
+}
