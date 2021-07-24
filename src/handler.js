@@ -194,3 +194,26 @@ export function editBookByIdHandler(request, h) {
     })
     .code(200)
 }
+
+export function deleteBookByIdHandler(request, h) {
+  const { bookId } = request.params
+
+  const indexFindBook = books.findIndex((book) => book.id === bookId)
+  if (indexFindBook === -1) {
+    return h
+      .response({
+        status: 'fail',
+        message: 'Buku gagal dihapus. Id tidak ditemukan',
+      })
+      .code(404)
+  }
+
+  books.splice(indexFindBook, 1)
+
+  return h
+    .response({
+      status: 'success',
+      message: 'Buku berhasil dihapus',
+    })
+    .code(200)
+}
