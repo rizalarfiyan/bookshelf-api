@@ -2,14 +2,14 @@
   "name": "bookshelf-api",
   "version": "1.0.0",
   "description": "Submission Bookshelf API dicoding Indonesia",
-  "main": "./src/index.js",
+  "main": "./src/server.js",
   "type": "module",
   "engines": {
     "node": "14.17.0"
   },
   "scripts": {
-    "start": "node ./src/index.js",
-    "dev": "nodemon ./src/index.js",
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js",
     "lint": "eslint ./src --ext \".js\"",
     "lint:fix": "eslint ./src --ext \".js\" --fix"
   },
