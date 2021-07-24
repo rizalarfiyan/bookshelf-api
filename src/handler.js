@@ -110,8 +110,8 @@ export function getAllBooksHandler(request, h) {
 }
 
 export function getBookByIdHandler(request, h) {
-  const { id } = request.params
-  const book = books.find((item) => item.id === id)
+  const { bookId } = request.params
+  const book = books.find((item) => item.id === bookId)
 
   if (typeof book === 'undefined') {
     return h
@@ -122,8 +122,75 @@ export function getBookByIdHandler(request, h) {
       .code(404)
   }
 
-  return h.response({
-    status: 'success',
-    data: { book },
-  })
+  return h
+    .response({
+      status: 'success',
+      data: { book },
+    })
+    .code(200)
+}
+
+export function editBookByIdHandler(request, h) {
+  const { bookId } = request.params
+  const {
+    name,
+    year,
+    author,
+    summary,
+    publisher,
+    pageCount,
+    readPage,
+    reading,
+  } = request.payload
+
+  if (typeof name === 'undefined') {
+    return h
+      .response({
+        status: 'fail',
+        message: 'Gagal memperbarui buku. Mohon isi nama buku',
+      })
+      .code(400)
+  }
+
+  if (pageCount < readPage) {
+    return h
+      .response({
+        status: 'fail',
+        message:
+          'Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount',
+      })
+      .code(400)
+  }
+
+  const indexFindBook = books.findIndex((book) => book.id === bookId)
+
+  if (indexFindBook === -1) {
+    return h
+      .response({
+        status: 'fail',
+        message: 'Gagal memperbarui buku. Id tidak ditemukan',
+      })
+      .code(404)
+  }
+
+  books[indexFindBook] = {
+    ...books[indexFindBook],
+    name,
+    year,
+    author,
+    summary,
+    publisher,
+    pageCount,
+    readPage,
+    finished: pageCount === readPage,
+    reading,
+    updatedAt: new Date().toISOString(),
+  }
+
+  return h
+    .response({
+      status: 'success',
+      message: 'Buku berhasil diperbarui',
+    })
+    .code(200)
 }
