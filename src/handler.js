@@ -77,21 +77,21 @@ export function getAllBooksHandler(request, h) {
 
   if (typeof name !== 'undefined' && name.trim().length > 0) {
     filterBooks = filterBooks.filter((book) =>
-      book.name.toLowerCase().match(new RegExp(name.toLowerCase(), 'gi'))
+      book.name.toLowerCase().match(new RegExp(name.toLowerCase(), 'gi')),
     )
   }
 
   const numReading = Number.parseInt(reading, 10)
   if (!Number.isNaN(numReading)) {
     filterBooks = filterBooks.filter(
-      (book) => book.reading === Boolean(numReading)
+      (book) => book.reading === Boolean(numReading),
     )
   }
 
   const numFinished = Number.parseInt(finished, 10)
   if (!Number.isNaN(numFinished)) {
     filterBooks = filterBooks.filter(
-      (book) => book.finished === Boolean(numFinished)
+      (book) => book.finished === Boolean(numFinished),
     )
   }
 
