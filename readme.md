@@ -26,6 +26,10 @@ $ npm lint
 
 # Membenarkan semua error pada file javascript (.js)
 $ npm lint:fix
+
+# Menjalankan testing menggunakan newman
+# Pastikan juga anda sudah menjalankan npm start
+$ npm test
 ```
 
 Custom `port` dan `host` dapat dikonfigurasikan pada file `.env` dengan menyalin file `.env.example`. Supaya lebih cepat dapat menggunkan dengan cara `copy .env.example .env` pada Command Propt (Windows) atau `cp .env.example .env` pada Terminal (Linux)
